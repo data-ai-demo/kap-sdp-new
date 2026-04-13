@@ -63,8 +63,8 @@ def load_csv_to_bronze(carrier_folder):
     return (
         raw
         .withColumn("raw_row_variant", raw_json)
-        .withColumn("ingestion_id", F.xxhash64(F.col("raw_row_variant"), F.col("file_path")))
         .withColumn("file_path", F.col("_metadata.file_path"))
+        .withColumn("ingestion_id", F.xxhash64(F.col("raw_row_variant"), F.col("file_path")))
         .withColumn("extracted_at", F.current_timestamp())
         .withColumn("source_row_hash", F.sha2(F.col("raw_row_variant"), 256))
         .select("ingestion_id", "file_path", "extracted_at", "source_row_hash", "raw_row_variant")
@@ -97,8 +97,8 @@ def load_json_to_bronze(carrier_folder):
     return (
         raw
         .withColumn("raw_row_variant", raw_json)
-        .withColumn("ingestion_id", F.xxhash64(F.col("raw_row_variant"), F.col("file_path")))
         .withColumn("file_path", F.col("_metadata.file_path"))
+        .withColumn("ingestion_id", F.xxhash64(F.col("raw_row_variant"), F.col("file_path")))
         .withColumn("extracted_at", F.current_timestamp())
         .withColumn("source_row_hash", F.sha2(F.col("raw_row_variant"), 256))
         .select("ingestion_id", "file_path", "extracted_at", "source_row_hash", "raw_row_variant")
