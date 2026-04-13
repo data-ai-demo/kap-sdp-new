@@ -1,0 +1,63 @@
+bundle:
+  name: kap-sdp-new
+
+workspace:
+  host: https://dbc-0dc80b39-7259.cloud.databricks.com
+
+targets:
+  dev:
+    default: true
+    workspace:
+      host: https://dbc-0dc80b39-7259.cloud.databricks.com
+
+resources:
+  pipelines:
+
+    # ── SharePoint → new_business ──
+    new_business_bronze:
+      name: kap-new-business-bronze
+      catalog: kap_demo
+      target: new_business
+      channel: PREVIEW
+      libraries:
+        - notebook:
+            path: ./new_business/bronze_sharepoint.py
+      configuration:
+        catalog: kap_demo
+        schema_location_base: /Volumes/kap_demo/new_business/sharepoint_landing/_schemas
+
+    # ── RiskMatch → risk_match ──
+    risk_match_bronze:
+      name: kap-risk-match-bronze
+      catalog: kap_demo
+      target: risk_match
+      channel: PREVIEW
+      libraries:
+        - notebook:
+            path: ./risk_match/bronze_riskmatch.py
+      configuration:
+        catalog: kap_demo
+        schema_location_base: /Volumes/kap_demo/risk_match/riskmatch_landing/_schemas
+
+    # ── Core Carriers → core_carriers ──
+    # All 5 carrier notebooks share the _carrier_template via %run.
+    # Adding a new carrier = new folder + notebook + one more library entry here.
+    core_carriers_bronze:
+      name: kap-core-carriers-bronze
+      catalog: kap_demo
+      target: core_carriers
+      channel: PREVIEW
+      libraries:
+        - notebook:
+            path: ./core_carriers/carrier_01_acme/bronze_acme.py
+        - notebook:
+            path: ./core_carriers/carrier_02_liberty/bronze_liberty.py
+        - notebook:
+            path: ./core_carriers/carrier_03_summit/bronze_summit.py
+        - notebook:
+            path: ./core_carriers/carrier_04_beacon/bronze_beacon.py
+        - notebook:
+            path: ./core_carriers/carrier_05_patriot/bronze_patriot.py
+      configuration:
+        catalog: kap_demo
+        schema_location_base: /Volumes/kap_demo/core_carriers/carrier_file_landing/_schemas

@@ -1,0 +1,13 @@
+# secrets
+.env
+.claude/.env
+
+# fixture output (generated, not source)
+fixtures/output/
+
+# python
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
