@@ -23,7 +23,7 @@ resources:
       serverless: true
       libraries:
         - notebook:
-            path: ./new_business/bronze_sharepoint.py
+            path: ./src/bronze/carriers/sharepoint/bronze_sharepoint.py
       configuration:
         catalog: kap_demo
         schema_location_base: /Volumes/kap_demo/new_business/sharepoint_landing/_schemas
@@ -37,7 +37,7 @@ resources:
       serverless: true
       libraries:
         - notebook:
-            path: ./risk_match/bronze_riskmatch.py
+            path: ./src/bronze/carriers/riskmatch/bronze_riskmatch.py
       configuration:
         catalog: kap_demo
         schema_location_base: /Volumes/kap_demo/risk_match/riskmatch_landing/_schemas
@@ -53,15 +53,15 @@ resources:
       serverless: true
       libraries:
         - notebook:
-            path: ./core_carriers/carrier_01_acme/bronze_acme.py
+            path: ./src/bronze/carriers/data_submission_app/carrier_01_acme/bronze_acme.py
         - notebook:
-            path: ./core_carriers/carrier_02_liberty/bronze_liberty.py
+            path: ./src/bronze/carriers/data_submission_app/carrier_02_liberty/bronze_liberty.py
         - notebook:
-            path: ./core_carriers/carrier_03_summit/bronze_summit.py
+            path: ./src/bronze/carriers/data_submission_app/carrier_03_summit/bronze_summit.py
         - notebook:
-            path: ./core_carriers/carrier_04_beacon/bronze_beacon.py
+            path: ./src/bronze/carriers/data_submission_app/carrier_04_beacon/bronze_beacon.py
         - notebook:
-            path: ./core_carriers/carrier_05_patriot/bronze_patriot.py
+            path: ./src/bronze/carriers/data_submission_app/carrier_05_patriot/bronze_patriot.py
       configuration:
         catalog: kap_demo
         schema_location_base: /Volumes/kap_demo/core_carriers/carrier_file_landing/_schemas
