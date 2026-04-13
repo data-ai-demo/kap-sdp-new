@@ -19,6 +19,7 @@ resources:
       catalog: kap_demo
       target: new_business
       channel: PREVIEW
+      serverless: true
       libraries:
         - notebook:
             path: ./new_business/bronze_sharepoint.py
@@ -32,6 +33,7 @@ resources:
       catalog: kap_demo
       target: risk_match
       channel: PREVIEW
+      serverless: true
       libraries:
         - notebook:
             path: ./risk_match/bronze_riskmatch.py
@@ -47,6 +49,7 @@ resources:
       catalog: kap_demo
       target: core_carriers
       channel: PREVIEW
+      serverless: true
       libraries:
         - notebook:
             path: ./core_carriers/carrier_01_acme/bronze_acme.py
