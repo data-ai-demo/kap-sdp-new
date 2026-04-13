@@ -12,7 +12,7 @@ from pyspark import pipelines as dp
 
 # COMMAND ----------
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_beacon", cluster_by_auto=True)
+@dp.table(name="bronze_beacon", cluster_by_auto=True)
 def bronze_beacon():
     """Beacon sends a monthly .xlsx bordereau with WC class codes,
     payroll, experience mod, schedule credits, and net premium.

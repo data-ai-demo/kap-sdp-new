@@ -12,7 +12,7 @@ from pyspark import pipelines as dp
 
 # COMMAND ----------
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_summit", cluster_by_auto=True)
+@dp.table(name="bronze_summit", cluster_by_auto=True)
 def bronze_summit():
     """Summit is the one carrier that sends JSON instead of CSV.
 

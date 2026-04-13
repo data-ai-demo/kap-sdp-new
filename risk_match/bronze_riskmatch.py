@@ -16,7 +16,7 @@ SCHEMA_LOC = spark.conf.get("schema_location_base") + "/riskmatch"
 
 # COMMAND ----------
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_riskmatch", cluster_by_auto=True)
+@dp.table(name="bronze_riskmatch", cluster_by_auto=True)
 def bronze_riskmatch():
     """Stream RiskMatch CSV drops into the 5-column Bronze schema.
 
@@ -43,7 +43,7 @@ def bronze_riskmatch():
         raw
         .withColumn("raw_row_variant", raw_json)
         .withColumn("ingestion_id", F.monotonically_increasing_id())
-        .withColumn("file_path", F.input_file_name())
+        .withColumn("file_path", F.col("_metadata.file_path"))
         .withColumn("extracted_at", F.current_timestamp())
         .withColumn("source_row_hash", F.sha2(F.col("raw_row_variant"), 256))
         .select("ingestion_id", "file_path", "extracted_at", "source_row_hash", "raw_row_variant")

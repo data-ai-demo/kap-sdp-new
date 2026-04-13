@@ -52,7 +52,7 @@ def parse_excel(content):
 
 # ─── BRONZE TABLE ───
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_sharepoint", cluster_by_auto=True)
+@dp.table(name="bronze_sharepoint", cluster_by_auto=True)
 def bronze_sharepoint():
     """Ingest SharePoint Excel files into the standard 5-column Bronze schema."""
     raw = (

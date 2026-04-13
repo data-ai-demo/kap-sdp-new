@@ -12,7 +12,7 @@ from pyspark import pipelines as dp
 
 # COMMAND ----------
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_acme", cluster_by_auto=True)
+@dp.table(name="bronze_acme", cluster_by_auto=True)
 def bronze_acme():
     """Acme sends monthly CSV policy extracts with 15 columns.
 

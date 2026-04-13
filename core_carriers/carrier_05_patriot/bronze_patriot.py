@@ -12,7 +12,7 @@ from pyspark import pipelines as dp
 
 # COMMAND ----------
 
-@dp.table(name=f"{CATALOG}.{SCHEMA}.bronze_patriot", cluster_by_auto=True)
+@dp.table(name="bronze_patriot", cluster_by_auto=True)
 def bronze_patriot():
     """Patriot's endorsement log: adds, removes, address changes, class
     code reclassifications. Nine columns including premium change and
