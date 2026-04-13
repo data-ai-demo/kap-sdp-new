@@ -1,12 +1,10 @@
 # Databricks notebook source
-# KAP Data Platform — New Business Domain
-# Bronze: SharePoint file ingestion (Excel + CSV)
-
-# COMMAND ----------
-
 # MAGIC %pip install openpyxl --quiet
 
 # COMMAND ----------
+
+# KAP Data Platform — New Business Domain
+# Bronze: SharePoint file ingestion (Excel + CSV)
 
 from pyspark import pipelines as dp
 from pyspark.sql import functions as F

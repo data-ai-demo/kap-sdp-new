@@ -1,4 +1,8 @@
 # Databricks notebook source
+# MAGIC %pip install openpyxl --quiet
+
+# COMMAND ----------
+
 # KAP Data Platform — Core Carriers
 # Shared helper functions for Bronze carrier ingestion
 #
@@ -9,12 +13,6 @@
 # This keeps every carrier pipeline under 30 lines — adding carrier #6
 # through #80 is just a new folder + a thin notebook that picks the
 # right loader (csv / json / excel).
-
-# COMMAND ----------
-
-# MAGIC %pip install openpyxl --quiet
-
-# COMMAND ----------
 
 from pyspark.sql import functions as F
 from pyspark.sql.types import ArrayType, StringType
