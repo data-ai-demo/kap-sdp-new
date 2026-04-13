@@ -76,7 +76,7 @@ def bronze_sharepoint():
     # stamp the remaining Bronze columns
     bronze = (
         parsed
-        .withColumn("ingestion_id", F.monotonically_increasing_id())
+        .withColumn("ingestion_id", F.xxhash64(F.col("raw_row_variant"), F.col("file_path")))
         .withColumn("extracted_at", F.current_timestamp())
         .withColumn("source_row_hash", F.sha2(F.col("raw_row_variant"), 256))
         .select("ingestion_id", "file_path", "extracted_at", "source_row_hash", "raw_row_variant")
