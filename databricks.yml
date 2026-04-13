@@ -9,6 +9,7 @@ targets:
     default: true
     workspace:
       host: https://dbc-0dc80b39-7259.cloud.databricks.com
+      root_path: /Workspace/Users/nitin.sharma.ind.06@gmail.com/kap-sdp-new
 
 resources:
   pipelines:
@@ -42,7 +43,7 @@ resources:
         schema_location_base: /Volumes/kap_demo/risk_match/riskmatch_landing/_schemas
 
     # ── Core Carriers → core_carriers ──
-    # All 5 carrier notebooks share the _carrier_template via %run.
+    # Each carrier notebook is self-contained (SDP doesn't share globals).
     # Adding a new carrier = new folder + notebook + one more library entry here.
     core_carriers_bronze:
       name: kap-core-carriers-bronze
