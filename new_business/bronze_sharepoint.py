@@ -4,6 +4,10 @@
 
 # COMMAND ----------
 
+# MAGIC %pip install openpyxl --quiet
+
+# COMMAND ----------
+
 from pyspark import pipelines as dp
 from pyspark.sql import functions as F
 from pyspark.sql.types import ArrayType, StringType
